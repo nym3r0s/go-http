@@ -2,7 +2,7 @@
 
 Simple Command-Line static file server written in Go.
 
-A replacement for `python -m SimpleHTTPServer`
+An alternative to `python -m SimpleHTTPServer`
 
 ## Installation
 
