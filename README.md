@@ -9,8 +9,8 @@ This serves the current directory to port 8080 of localhost
 
 Options :- 
 
-	` -p `  : Specify the port number
-	` -dir` : Specify subdirectory
+	 -p   : Specify the port number
+	 -dir : Specify subdirectory
 
 # Specifying Port Number
 

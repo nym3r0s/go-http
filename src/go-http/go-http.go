@@ -6,7 +6,7 @@ import (
 	"flag"
 	"log"
 	"io/ioutil"
-	// "fmt"
+	"fmt"
 	"os"
 )
 
@@ -121,6 +121,7 @@ func main() {
 
 	baseURL = "http://localhost:" + portNum;
 
+	fmt.Println("Serving on ",baseURL)
 	// fmt.Println("Setting Default Path: ",defaultPath)
     // fmt.Println(os.Args[1])
 	http.HandleFunc("/", Handler)
