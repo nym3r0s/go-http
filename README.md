@@ -19,8 +19,9 @@ $ go-http
 
 Options :- 
 
-	 -p   : Specify the port number
-	 -d   : Specify subdirectory
+	 -h   : Specify the host address (default: localhost)
+	 -p   : Specify the port number (default: 8080)
+	 -d   : Specify subdirectory (default: current directory)
 
 ## Specifying Port Number
 
