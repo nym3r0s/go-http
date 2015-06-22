@@ -84,6 +84,7 @@ func Handler(w http.ResponseWriter, req *http.Request) {
 
 func main() {
 
+	defaultHostPtr := flag.String("h", "", "Host address")
 	defaultPortPtr := flag.String("p", "", "Port Number")
 	defaultPathPtr := flag.String("d", "", "Root Directory")
 	flag.Parse()
@@ -94,12 +95,17 @@ func main() {
 		defaultPath = ""
 	}
 
+	host := "localhost"
+	if *defaultHostPtr != "" {
+		host = *defaultHostPtr
+	}
+
 	portNum := "8080"
 	if *defaultPortPtr != "" {
 		portNum = *defaultPortPtr
 	}
 
-	baseURL = "http://localhost:" + portNum
+	baseURL = "http://" + host + ":" + portNum
 
 	fmt.Println("Serving on ", baseURL, " subdirectory ", defaultPath)
 
