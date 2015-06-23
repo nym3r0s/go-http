@@ -7,6 +7,7 @@ import (
 	"io/ioutil"
 	"log"
 	"net/http"
+	"net"
 	"os"
 	"path"
 	"strings"
@@ -108,6 +109,7 @@ func Handler(w http.ResponseWriter, req *http.Request) {
 
 func main() {
 
+	defaultHostPtr := flag.String("h", "", "Host address")
 	defaultPortPtr := flag.String("p", "", "Port Number")
 	defaultPathPtr := flag.String("d", "", "Root Directory")
 	flag.Parse()
@@ -118,12 +120,31 @@ func main() {
 		defaultPath = ""
 	}
 
+	host := "localhost"
+	if *defaultHostPtr != "" {
+		addrs, err := net.LookupHost(*defaultHostPtr)
+
+		if err != nil {
+			fmt.Println("Impossible to resolv domain name:", err)
+
+			ipaddr := net.ParseIP(*defaultHostPtr)
+
+			if ipaddr != nil {
+				host = *defaultHostPtr
+			} else {
+				log.Fatal("No address IP could be decoded")
+			}
+		} else {
+			host = addrs[0]
+		}
+	}
+
 	portNum := "8080"
 	if *defaultPortPtr != "" {
 		portNum = *defaultPortPtr
 	}
 
-	baseURL = "http://localhost:" + portNum
+	baseURL = "http://" + host + ":" + portNum
 
 	fmt.Println("Serving on ", baseURL, " subdirectory ", defaultPath)
 
