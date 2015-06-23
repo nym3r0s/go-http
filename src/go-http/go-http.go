@@ -7,6 +7,7 @@ import (
 	"io/ioutil"
 	"log"
 	"net/http"
+	"net"
 	"os"
 )
 
@@ -97,7 +98,19 @@ func main() {
 
 	host := "localhost"
 	if *defaultHostPtr != "" {
-		host = *defaultHostPtr
+		ipaddr := net.ParseIP(*defaultHostPtr)
+
+		if ipaddr != nil {
+			host = *defaultHostPtr
+		} else {
+			addrs, err := net.LookupHost(*defaultHostPtr)
+
+			if err != nil {
+				log.Fatal("Impossible to resolv domain name:", err)
+			}
+
+			host = addrs[0]
+		}
 	}
 
 	portNum := "8080"
