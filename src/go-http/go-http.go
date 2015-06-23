@@ -98,17 +98,19 @@ func main() {
 
 	host := "localhost"
 	if *defaultHostPtr != "" {
-		ipaddr := net.ParseIP(*defaultHostPtr)
+		addrs, err := net.LookupHost(*defaultHostPtr)
 
-		if ipaddr != nil {
-			host = *defaultHostPtr
-		} else {
-			addrs, err := net.LookupHost(*defaultHostPtr)
+		if err != nil {
+			fmt.Println("Impossible to resolv domain name:", err)
 
-			if err != nil {
-				log.Fatal("Impossible to resolv domain name:", err)
+			ipaddr := net.ParseIP(*defaultHostPtr)
+
+			if ipaddr != nil {
+				host = *defaultHostPtr
+			} else {
+				log.Fatal("No address IP could be decoded")
 			}
-
+		} else {
 			host = addrs[0]
 		}
 	}
