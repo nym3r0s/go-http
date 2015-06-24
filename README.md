@@ -1,17 +1,19 @@
 # Go-Http
 
-Simple Command-Line static file server written in Go.
+A simple command-line static file server written in the Go Programming Language.
 
 An alternative to `python -m SimpleHTTPServer`
 
-## Installation
+# Installation
+
+It's as simple as 
 
 ```sh
 $ go get -u github.com/GokulSrinivas/go-http/src/go-http/
 ```
 # Usage 
 
-To serve the current directory, simply type 
+To serve the current directory on `localhost:8080`, simply type 
 
 ```sh
 $ go-http
@@ -38,7 +40,7 @@ $ go-http -d=sample
 
 This serves the subdirectory `sample` to port 8080 of localhost
 
-## Example
+## Example Usage
 
 ```sh
 $ go-http -p=4141 -d=sample
@@ -46,9 +48,9 @@ $ go-http -p=4141 -d=sample
 
 This serves the subdirectory `sample` to port 4141 of localhost
 
-## Contribute
+# Contribute
 
-If you want to add features, improve them, or report issues, feel free to send a pull request!!
+If you want to add features, improve them, or report issues, feel free to send a pull request!
 
 # LICENSE
 
