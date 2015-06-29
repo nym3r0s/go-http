@@ -6,20 +6,20 @@ An alternative to `python -m SimpleHTTPServer`
 
 # Installation
 
-It's as simple as 
+It's as simple as
 
 ```sh
-$ go get -u github.com/GokulSrinivas/go-http/src/go-http/
+$ go get -u github.com/GokulSrinivas/go-http
 ```
-# Usage 
+# Usage
 
-To serve the current directory on `localhost:8080`, simply type 
+To serve the current directory on `localhost:8080`, simply type
 
 ```sh
 $ go-http
 ```
 
-Options :- 
+Options :-
 
 	 -p   : Specify the port number
 	 -d   : Specify subdirectory
