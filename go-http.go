@@ -117,6 +117,13 @@ func Handler(w http.ResponseWriter, req *http.Request) {
 	}
 
 	str := string(b)
+	extension := path.Ext(filename)
+
+	if extension == ".css" {
+		w.Header().Set("Content-Type", "text/css; charset=utf-8")
+	} else if extension == ".js" {
+		w.Header().Set("Content-Type", "application/javascript; charset=utf-8")
+	}
 	_, err = io.WriteString(w, str)
 	if err != nil {
 		// panic(err)
