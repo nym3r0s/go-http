@@ -1,3 +1,4 @@
+[![license](http://img.shields.io/badge/license-MIT-red.svg?style=flat)](https://github.com/GokulSrinivas/go-http/blob/master/LICENSE.md)
 [![Go Report Card](http://goreportcard.com/badge/gokulsrinivas/go-http)](http://goreportcard.com/report/gokulsrinivas/go-http)
 # Go-Http
 
@@ -55,4 +56,4 @@ If you want to add features, improve them, or report issues, feel free to send a
 
 # LICENSE
 
-![GPL V3](https://raw.githubusercontent.com/GokulSrinivas/go-http/master/gpl.png)
+[MIT](https://github.com/GokulSrinivas/go-http/blob/master/LICENSE.md)
