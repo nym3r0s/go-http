@@ -1,3 +1,4 @@
+[![Go Report Card](http://goreportcard.com/badge/gokulsrinivas/go-http)](http://goreportcard.com/report/gokulsrinivas/go-http)
 # Go-Http
 
 A simple command-line static file server written in the Go Programming Language.
