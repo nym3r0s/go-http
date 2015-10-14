@@ -66,9 +66,9 @@ func Handler(w http.ResponseWriter, req *http.Request) {
 		for _, f := range files {
 			if f.Name()[0] != '.' {
 				if f.IsDir() {
-					responseString += "<li><a href=\"" + baseURL + req.URL.Path[0:] + slashCheck + f.Name() + "\">" + f.Name() + "/" + "</a></li>"
+					responseString += "<li><a href=\"" + req.URL.Path[0:] + slashCheck + f.Name() + "\">" + f.Name() + "/" + "</a></li>"
 				} else {
-					responseString += "<li><a href=\"" + baseURL + req.URL.Path[0:] + slashCheck + f.Name() + "\">" + f.Name() + "</a></li>"
+					responseString += "<li><a href=\"" + req.URL.Path[0:] + slashCheck + f.Name() + "\">" + f.Name() + "</a></li>"
 				}
 			}
 		}
@@ -91,7 +91,7 @@ func Handler(w http.ResponseWriter, req *http.Request) {
 				url = strings.TrimRight(url, "/") // Remove extra / at the end
 			}
 
-			responseString += "<br/><a href=\"" + baseURL + url + "\">Parent directory</a>"
+			responseString += "<br/><a href=\"" + url + "\">Parent directory</a>"
 		}
 
 		responseString = responseString + "</body></html>"
